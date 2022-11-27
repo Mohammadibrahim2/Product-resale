@@ -1,0 +1,9 @@
+.loginbg{
+
+    background:url("https://images.template.net/98771/beautiful-nature-background-8a56b.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.formbg{
+    background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1));
+}
