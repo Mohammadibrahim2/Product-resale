@@ -69,7 +69,7 @@ const Register = () => {
     const saveUser = (name, email, role,photoURL) =>{
         const Nuser ={name, email, role,photoURL};
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://n-mohammadibrahim2.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -95,10 +95,9 @@ const Register = () => {
     return (
         <div>
             <div className="hero min-h-screen registerbg">
-                <div className="hero-content flex lg:flex-row-reverse">
+                <div className="hero-content flex lg:flex-row-reverse md:flex-col flex-col">
                     <div className="text-center lg:text-left text-black">
-                        {/* <h1 className="text-5xl font-bold">Register Now</h1>
-                        <p className="py-6">Wellcome back!.</p> */}
+                      
                         <img src="https://www.planstudyabroad.uniagents.com/images/login.png"/>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -129,7 +128,7 @@ const Register = () => {
                                
                             </div>
                             <select name="userRole"className="select select-bordered w-full max-w-xs">
-                               
+                            <option>Admin</option>
                                 <option>Buyer</option>
                                 <option>Seller</option>
                             </select>

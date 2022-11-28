@@ -1,0 +1,79 @@
+[
+    {
+        "category":"BedRoom",
+        "title":"Almirah",
+        "location":"Noakhali",
+        "resalePrice":7000,
+        "originalPrice":10000,
+        "yearsOfUse":3.5,
+        "sellerSName":"Rakibul Islam",
+        "postedTime":"2:00 PM",
+        "image":"https://admin.regalfurniturebd.com/storage/uploads/fullsize/2022-04/cbh-359.jpg"
+           
+    },
+    
+    {
+        "category":"BedRoom",
+        "title":"single Bed",
+        "location":"Noakhali",
+        "resalePrice":75000,
+        "originalPrice":8000,
+        "yearsOfUse":3,
+        "sellerSName":"Sagor Ahmed",
+        "postedTime":"11/04/22",
+        "image":"https://media.karousell.com/media/photos/products/2020/10/11/second_hand_single_bed_frame_a_1602388984_76ec6a70.jpg"
+           
+    },
+    
+    {
+        "category":"Reading Room",
+        "title":"Reading Table",
+        "location":"Noakhali",
+        "resalePrice":6500,
+        "originalPrice":5000,
+        "yearsOfUse":2.5,
+        "sellerSName":"Ornab hasan",
+        "postedTime":"09/04/22",
+        "image":"https://usedfurnitures.in/timthumb.php?src=images/products/2190-soild-wood-study-table.JPG&h=350"
+           
+    },
+    
+    {
+        "category":"Reading Room",
+        "title":"Reading chair",
+        "location":"Noakhali",
+        "resalePrice":2000,
+        "originalPrice":1000,
+        "yearsOfUse":1.5,
+        "sellerSName":"Rakibul Islam",
+        "postedTime":"07/08/22",
+        "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRigCoRy17hZRxxfpmnYD189g35NvZiY-P343N84JbLL2hB__U3h2MvcWd2F3Jh5P99T2w&usqp=CAU"
+           
+    },
+    
+    {
+        "category":"Drawing room",
+        "title":"Corner Rack",
+        "location":"Noakhali",
+        "resalePrice":1500,
+        "originalPrice":1000,
+        "yearsOfUse":1,
+        "sellerSName":"Sahoh ahmed",
+        "postedTime":"03/08/22",
+        "image":"https://i.pinimg.com/564x/15/c1/e1/15c1e1b079c9bc6bb844194bd9ce3b88.jpg"
+           
+    },
+    
+    {
+        "category":"Drawing room",
+        "title":"Center Table",
+        "location":"Noakhali",
+        "resalePrice":3500,
+        "originalPrice":2500,
+        "yearsOfUse":1.5,
+        "sellerSName":"Akash chowdory",
+        "postedTime":"01/12/21",
+        "image":"https://5.imimg.com/data5/LI/WC/MY-48861015/second-hand-dining-table-500x500.jpg"
+           
+    }
+]

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../assetes/logo2.jpg"
+import logo from "../../../assetes/logo6.jpg"
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Navbar = () => {
@@ -13,8 +13,7 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>,
         <li><Link to="/blog">Blog</Link></li>,
         <li><Link to="/catagory">Catagory</Link></li>,
-        <li><Link to="/myproducts">My Products</Link></li>,
-        <li><Link to="/allbookings">All Bookings</Link></li>,
+        
         <>{user?
             <>
              <li><Link to="/dashboard">DashBoard</Link></li> 
@@ -29,7 +28,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-lime-200 text-black font-semibold text-[18px]">
+            <div className="navbar bg-red-400 text-black font-semibold text-[18px]">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -40,7 +39,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                    <Link to="/"> <img src={logo} className="w-20 rounded-full"/> </Link>
-                    <a href="/"className="btn btn-ghost text-xl">Resale Product</a>
+                    <a href="/"className="btn btn-ghost text-xl font-uppercase">BecaKena.Com</a>
                    
                 </div>
                 <div className="navbar-center hidden lg:flex ">

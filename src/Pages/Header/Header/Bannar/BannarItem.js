@@ -1,6 +1,6 @@
 import React from "react";
 const BannarItem = ({ slide }) => {
-    const { id, prev, next, image } = slide
+    const { id, prev, next, image,title } = slide
 
     return (
 
@@ -11,7 +11,8 @@ const BannarItem = ({ slide }) => {
                 <img src={image} className="w-full h-full" />
             </div>
             <div className="w-1/4 justify-self-center  self-center px-3">
-                <h1 className="lg:text-5xl text-xl text-black font-semibold  ">Wellcome in our furniture site</h1>
+                <h1 className="lg:text-4xl font-semibold text-xl text-black   ">{title}
+                    </h1>
             </div>
 
             </div>

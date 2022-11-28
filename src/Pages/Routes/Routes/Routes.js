@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DashBoardLAyout from "../../../DashboardLayout/DashBoardLayout";
 import Main from "../../../Layout/Main";
 import Blog from "../../Blog/Blog";
+import AddProduct from "../../DashBoard/Dashboard/AddProduct/AddProduct";
 import Allseller from "../../DashBoard/Dashboard/Allseller/Allseller";
 import DashBoard from "../../DashBoard/Dashboard/DashBoard";
 import MyBookings from "../../DashBoard/MyBookings/MyBookings";
@@ -36,9 +37,9 @@ export const router=createBrowserRouter([
             element:<Register></Register>
         },
         {
-            path:"/category/:id",
+            path:"/category/:title",
             element:<PrivateRoute><ProductsOFCategory></ProductsOFCategory></PrivateRoute>,
-            loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
+            loader:({params})=>fetch(`https://n-mohammadibrahim2.vercel.app/category/${params.title}`)
         },
         
 
@@ -62,12 +63,16 @@ export const router=createBrowserRouter([
         {
             path:"/dashboard/allseller",
             element:<Allseller></Allseller>,
-            loader:()=>fetch("http://localhost:5000/users/seller")
+            loader:()=>fetch("https://n-mohammadibrahim2.vercel.app/users/seller")
         },
-        {
-            path:"/dashboard/payment",
-            element:<Payment></Payment>
+        // {
+        //     path:"/dashboard/payment",
+        //     element:<Payment></Payment>
            
+        // },
+        {
+            path:"/dashboard/allproduct",
+            element:<AddProduct></AddProduct>
         }
         
     ]

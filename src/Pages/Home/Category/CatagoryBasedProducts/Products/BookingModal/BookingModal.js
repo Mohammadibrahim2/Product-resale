@@ -36,7 +36,7 @@ const handleModalSubmit=(event)=>{
     }
     
    
-    fetch('http://localhost:5000/bookings',{
+    fetch('https://n-mohammadibrahim2.vercel.app/bookings',{
         method:"POST",
         headers:{
             "content-type":"application/json"
@@ -71,7 +71,7 @@ const handleModalSubmit=(event)=>{
                         <form onSubmit={handleModalSubmit} className="w-full text-center p-3 ">
 
                         <input  name="productName"className="text-3xl font-semibold py-3 bg-white w-full border border-none text-center text-orange-700"defaultValue={title} disabled />
-
+                        <input name="name"type="name" defaultValue={image} disabled  className="input input-bordered w-full mt-2   " />
                         <input name="name"type="name" defaultValue={user.displayName} disabled  className="input input-bordered w-full mt-2   " />
                         <input name="email" type="email"defaultValue={user.email}  disabled className="my-3 input input-bordered w-full   " />
                         <input type="text" name="price"defaultValue={resalePrice} disabled className="input input-bordered   w-full mt-3 mb-3 "/>

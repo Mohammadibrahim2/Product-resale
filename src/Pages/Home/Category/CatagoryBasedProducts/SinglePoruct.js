@@ -1,8 +1,10 @@
 import React from "react";
+import {HiCheck } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 const SingleProduct = ({ product ,setModalData}) => {
-    const { image, id, title, location,resalePrice,originalPrice,yearsOfUse,sellerSName,postedTime } = product
+    const { image, id, title, location,resalePrice,originalPrice,yearsOfUse,sellerSName,postedTime,verified
+    } = product
    
 
     return (
@@ -18,8 +20,10 @@ const SingleProduct = ({ product ,setModalData}) => {
                     <h2 className="card-title text-black w-full text-3xl">
                       {title}
                     </h2>
-                    <div>
+                    <div className="flex flex-row justify-between item-center w-3/4">
                     <h3 className="card-title text-black w-full"> Seller's Name: {sellerSName}</h3>
+                    {verified && <HiCheck className="font-semibold text-3xl"style={{color:"blue"}}></HiCheck>  }
+         
 
                     </div>
                     

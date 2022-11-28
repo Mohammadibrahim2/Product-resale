@@ -2,7 +2,7 @@ import React from "react";
 import { HiArrowCircleRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 const CategoryItem=({category})=>{
-    const {id,image,title,details}=category
+    const {id,image,title,details,}=category
 
     return(
         <div>
@@ -20,7 +20,7 @@ const CategoryItem=({category})=>{
                     </div>
                     <div className="card-actions  text-4xl text-black">
                  
-                 <Link to={`/category/${id}`}><HiArrowCircleRight></HiArrowCircleRight> </Link> 
+                 <Link to={`/category/${title}`}><HiArrowCircleRight></HiArrowCircleRight> </Link> 
                     
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Spinner } from "react-bootstrap";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 const PrivateRoute=({children})=>{
@@ -6,7 +7,13 @@ const PrivateRoute=({children})=>{
     console.log(user)
     const location=useLocation();
     if(loading){
-        return<h1>Loading...</h1>
+        return <>
+        <Spinner animation="border" variant="success" />
+        <Spinner animation="border" variant="success" />
+        <Spinner animation="border" variant="success" />
+        </>
+    
+    
     }
     if(user){
         return children

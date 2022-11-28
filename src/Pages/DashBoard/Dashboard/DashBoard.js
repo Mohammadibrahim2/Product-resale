@@ -33,7 +33,7 @@ const {data: allusers = [], refetch} = useQuery({
       })
   }
   const handleDelete=id=>{
-    fetch(`http://localhost:5000/allusers/${id}`,{
+    fetch(`https://n-mohammadibrahim2.vercel.app//allusers/${id}`,{
       method:"DELETE"
     })
     .then(res=>res.json())
@@ -46,16 +46,16 @@ const {data: allusers = [], refetch} = useQuery({
         <div>
           
             <div className="overflow-x-auto text-xl ">
-            <h2 className="text-3xl bg-white text-black py-5 ">Allusers</h2>
+            <h2 className="text-3xl   text-black py-5 font-semibold">All Users</h2>
   <table className="table text-black w-full  ">
     <thead className="bg-red-10 ">
       <tr className="border">
-        <th className=" text-xl bg-orange-100">Img</th> 
-        <th className=" text-xl bg-orange-100">Name</th> 
-        <th className=" text-xl bg-orange-100">Email</th> 
-        <th className=" text-xl bg-orange-100">Role</th> 
-        <th className=" text-xl bg-orange-100">Id</th> 
-        <th className=" text-xl bg-orange-100">Last Login</th> 
+        <th className=" text-xl bg-red-200">Img</th> 
+        <th className=" text-xl bg-red-200">Name</th> 
+        <th className=" text-xl bg-red-200">Email</th> 
+        <th className=" text-xl bg-red-200">Role</th> 
+        <th className=" text-xl bg-red-200">Id</th> 
+        <th className=" text-xl bg-red-200">Last Login</th> 
        
       </tr>
     </thead> 

@@ -6,21 +6,20 @@ const Footer = () => {
     return (
         <div>
 
-            <footer className="footer p-10 bg-base-300 text-base-content">
+            <footer className="footer p-10 bg-base-300 text-white">
                 <div>
                     <span className="footer-title">Services</span>
-                    <Link to="/">Branding</Link>
-                    <Link to="/">Design</Link>
-                    <Link to="/">Marketing</Link>
-                    <Link to="/">Advertisement</Link>
+                    <Link to="/">Product Catagories</Link>
+                    <Link to="/login">Log in</Link>
+                    <Link to="/register">Registration</Link>
+                    <Link to="/adverties">Advertisement</Link>
                    
                 </div>
                 <div>
-                    <span className="footer-title">Company</span>
-                    <Link to="/">About us</Link>
-                    <Link to="/">Contact</Link>
-                    <Link to="/">Jobs</Link>
-                    <Link to="/">Press kit</Link>
+                    <span className="footer-title">Catagories</span>
+                    <Link to="/">Home</Link>
+                    <Link to="/blog">Blog</Link>
+                    
                     
                 </div>
                 <div>

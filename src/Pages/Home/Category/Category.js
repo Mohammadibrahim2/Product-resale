@@ -4,7 +4,7 @@ import CategoryItem from "./CategoryItems/CategoryItems";
 const Category = () => {
     const categoryData=[
         {
-            id:1,
+            category:1,
             image:"http://cdn.home-designing.com/wp-content/uploads/2018/08/modern-platform-bedroom-sets.jpg",
             title:"BedRoom",
             details:"hellow lagbe nakefurniture"

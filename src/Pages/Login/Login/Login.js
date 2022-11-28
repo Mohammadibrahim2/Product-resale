@@ -57,14 +57,14 @@ const Login = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen loginbg">
+            <div className="hero min-h-screen bg-red-100">
                 <div className="hero-content flex lg:flex-row-reverse">
                     <div className="text-center lg:text-left text-white ">
                         {/* <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">Wellcome back!.</p> */}
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handlesubmit} className="p-10 formbg w-full">
+                        <form onSubmit={handlesubmit} className="p-10  w-full">
                             <div className="text-center w-full">
                                 <img className="w-40 rounded " src="https://www.nicepng.com/png/detail/302-3026464_png-file-svg-login-member-icon-png.png" />
                             </div>
@@ -85,12 +85,12 @@ const Login = () => {
                                 </label>
                             </div>
                            
-                            <div>Create a new account ? <Link className="text-green-500" to="/register">please Register</Link></div>
+                            <div>Create a new account ? <Link className="text-red-400" to="/register">please Register</Link></div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-green-500 text-black">Login</button>
+                                <button className="btn bg-red-400 text-black">Login</button>
                             </div>
                             <div className="form-control mt-6">
-                                <button onClick={handleGooglelogin} className="btn bg-green-500 text-black">Google Sign in</button>
+                                <button onClick={handleGooglelogin} className="btn bg-red-400 text-black">Google Sign in</button>
                             </div>
                         </form>
                     </div>

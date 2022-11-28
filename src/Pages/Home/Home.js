@@ -1,5 +1,5 @@
 import React from "react";
-import MyBookings from "../DashBoard/MyBookings/MyBookings";
+
 import Bannar from "../Header/Header/Bannar/Bannar";
 import Advertisement from "./Advertisement/Advertisement";
 import Category from "./Category/Category";
