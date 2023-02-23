@@ -14,7 +14,7 @@ const [verified,setVerified]=useState(false)
 
 const handleVerified=(email)=>{
 
-    fetch(`http://localhost:5000/category/${email}`,{
+    fetch(`https://n-mohammadibrahim2.vercel.app/${email}`,{
         method:"PUT"
     }).then(res=>res.json())
     .then(data=>{

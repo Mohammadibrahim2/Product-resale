@@ -1,0 +1,88 @@
+/* 
+
+.imge-cube{
+    position: relative;
+  
+    margin: 0 auto;
+   
+    
+  
+    perspective:800px;
+    
+}
+/* .cube:hover{
+   transform: rotateX(361deg) ;  
+
+ 
+   
+} */
+/* 
+.cube {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    
+    
+  
+   
+   
+    transition-duration: 10s;
+    transform-style: preserve-3d;
+}
+.map{
+    position: absolute;
+    top: 0%;
+    left: -2%;
+    width: 100px;
+    height: 100px;
+    z-index: 20;
+}
+.side{
+    position: absolute;
+
+   
+    width: 100%;
+    height:100%;
+
+    text-align: center;
+    display: flex;
+    flex-direction: row ;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 0px 0;
+} */
+
+/* .front{
+    transform:  translateZ(199px);
+}
+
+.back{
+    transform:  rotateY(180deg) translateZ(198px) ;
+}
+
+
+
+.top{
+    transform: rotateX(90deg) translateZ(198px);
+}
+.bottom{
+    transform: rotateX(-90deg) translateZ(198px);
+   
+} */
+.headText{
+    position: relative;
+}
+.headText::after{
+    position: absolute;
+    width: 2.5px;
+    height: 90%;
+    content: "";
+    display: block;
+    top:0;
+    left: -4%;
+    background-color: #ed1d24;
+} 
+/* .desom{
+    display: flex;
+    flex-direction: row;
+} */

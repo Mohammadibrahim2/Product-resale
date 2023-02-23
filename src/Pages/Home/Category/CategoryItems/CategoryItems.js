@@ -1,27 +1,34 @@
 import React from "react";
-import { HiArrowCircleRight } from "react-icons/hi";
+import {MdOutlineComputer } from "react-icons/md";
 import { Link } from "react-router-dom";
-const CategoryItem=({category})=>{
-    const {id,image,title,details,}=category
+const CategoryItem = ({ category }) => {
 
-    return(
+    const { id, icon, title, details, } = category
+
+
+    return (
         <div>
-              <div className=" w-96 h-80 bg-white shadow-xl ">
-                <div className="w-full h-3/4">
-                <img src={image}alt="Shoes" className="h-full w-full" />
-                </div>
-              
-                <div className="card-body flex justify-between items-center px-5 flex-row">
-                    <div className="card-actions ">
-                    <h2 className="card-title text-black">
-                      {title}
-                    </h2>
+            <div className=" lg:w-[270px] lg:h-[270px] w-[180px] h-[180px] bg-white  ">
+
+                <div className="h-2/3 w-2/3  rounded-full  lg:border-[25px] border-[20px] hover:border-zinc-200 flex flex-row justify-center items-center border-zinc-900" style={{color:"#ed1d24"}}>
+
+             
+                        <span className="p-2 lg:text-5xl  text-4xl">
                     
-                    </div>
-                    <div className="card-actions  text-4xl text-black">
-                 
-                 <Link to={`/category/${title}`}><HiArrowCircleRight></HiArrowCircleRight> </Link> 
-                    
+                        {icon}
+                            </span>
+                            </div>
+                   
+
+                
+           
+
+                <div className=" flex justify-between items-start px-5 flex-col my-3 pb-2">
+
+                    <div className="card-title text-black">
+
+                        <Link to={`/category/${id}`} className="flex flex-row justify-center items-center">    {title} </Link>
+
                     </div>
                 </div>
             </div>

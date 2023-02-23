@@ -5,7 +5,7 @@ import { AuthContext } from "../../../../../Context/AuthProvider/AuthProvider";
 
 
 const BookingModal = ({ modalData,setModalData}) => {
-    const {image, id, title, location,resalePrice,originalPrice, yearsOfUse,sellerSName,postedTime }=modalData;
+    const {title,price,img}=modalData;
         const{user}=useContext(AuthContext)
         console.log(user)
         console.log(modalData)
@@ -16,69 +16,76 @@ const handleModalSubmit=(event)=>{
     
     event.preventDefault()
 
-    const form=event.target;
-    const email=form.email.value;
-    const phone=form.phone.value;
-    const location=form.location.value;
-    const price=form.price.value;
-    const BookerName=form.name.value;
-    const productName=form.productName.value
-  
-    const bookingInfo={
-        email,
-        phone,
-        BookerName,
-        price,
-        location,
-        productName
-        
-        
-    }
+   
     
    
-    fetch('https://n-mohammadibrahim2.vercel.app/bookings',{
-        method:"POST",
-        headers:{
-            "content-type":"application/json"
-        },
-        body:JSON.stringify(bookingInfo)
-    })
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data)
+//     fetch('https://n-mohammadibrahim2.vercel.app/bookings',{
+//         method:"POST",
+//         headers:{
+//             "content-type":"application/json"
+//         },
+//         body:JSON.stringify(bookingInfo)
+//     })
+//     .then(res=>res.json())
+//     .then(data=>{
+//         console.log(data)
        
-        if(data.acknowledged===true){
-            toast.success("successfully booked your items")
-            form.reset()
+//         if(data.acknowledged===true){
+//             toast.success("successfully booked your items")
+//             form.reset()
            
 
-         }
+//          }
       
-    })
+//     })
     
 
 }
+   
+const handleCart = (item) => {
+
+    const { img, title, price, odlPrice, rating, category, type } = item
+    const cartitems = { img, title, price, odlPrice, rating, category, type }
+    cartitems.no = item._id
+
+    cartitems.person = user?.displayName;
+    cartitems.email = user?.email;
+    console.log(cartitems)
+    fetch(`http://localhost:5000/addtocart/${user?.email}`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(cartitems)
+
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.acknowledged === true) {
+          toast.success("Successfully added your products.Thank you!")
+        
+        }
+      })
+  };
 
     return (
         <div>
-            booking modal..
+            
             <div className="">
                 
                 <input type="checkbox" id="Booking-modal" className="modal-toggle " />
                 <div className="modal">
                     <div className="modal-box relative bg-white ">
-                        <label htmlFor="Booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                        <form onSubmit={handleModalSubmit} className="w-full text-center p-3 ">
-
-                        <input  name="productName"className="text-3xl font-semibold py-3 bg-white w-full border border-none text-center text-orange-700"defaultValue={title} disabled />
-                        <input name="name"type="name" defaultValue={image} disabled  className="input input-bordered w-full mt-2   " />
-                        <input name="name"type="name" defaultValue={user.displayName} disabled  className="input input-bordered w-full mt-2   " />
-                        <input name="email" type="email"defaultValue={user.email}  disabled className="my-3 input input-bordered w-full   " />
-                        <input type="text" name="price"defaultValue={resalePrice} disabled className="input input-bordered   w-full mt-3 mb-3 "/>
-                        <input type="text" name="location"placeholder="Meeting place"  className="input input-bordered  w-full mt-3 mb-3 "/>
-                        <input type="text"  name="phone"placeholder=" Enter Your Phone Number" className="input input-bordered w-full my-3   " />
-                        <input type="submit" value="SUBMIT"  className="btn btn-error w-full" />
-                    </form>
+                        <label htmlFor="Booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2  " onClick={() => setModalData(null)} >✕</label>
+                        
+                    <div className="flex lg:flex-row flex-col items-center justify-between px-5">
+                        <img src={img} className="lg:w-1/2 w-2/3 h-1/3 lg:h-1/2"/>
+                       <div className="text-black font-semibold">
+                       <h1> Name: {title} </h1>
+                       <h2 className="">  <span style={{color:"#ed1d24"}} >Price :  {price} Tk.   </span> </h2>
+                       <button className="px-3 py-2 text-white bg-zinc-900" onClick={()=>handleCart(modalData)} style={{backgroundColor:""}}>Add to Cart</button>
+                       </div>
+                        </div>
                     </div>
                 </div>
             </div>

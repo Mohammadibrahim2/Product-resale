@@ -1,154 +1,110 @@
+
 import React, { useContext } from "react";
-import toast from "react-hot-toast";
+
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+
+
+
+import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
-const AddProduct=()=>{
-    const {user}=useContext(AuthContext)
+import Navigation from "../../../Home/ExtraSection/Navigation";
+import { MdAddBusiness } from "react-icons/md";
 
-    const handleOnsubmit=event=>{
-        event.preventDefault()
-        const form=event.target
-        const ProductName=form.productName.value;
-        const PhotoUrl=form.PhotoURL.value;
-        const UserName=form.UserName.value;
-        const UserEmail=form.UserEmail.value;
-        const category=form.category.value;
-        const Location=form.Location.value;
-        const ResalePrice=form.ResalePrice.value;
-        const OriginalPrice=form.OriginalPrice.value;
-        const UsedYear=form.Usedyear.value;
-        const date=form.Date.value
-    
-        const ProductDetails={
-            
-            category,
-            email:UserEmail,
-            title:ProductName,
-            location:Location,
-             resalePrice:ResalePrice,
-             originalPrice:OriginalPrice,
-             yearsOfUse:UsedYear,
-            sellerSName:UserName,
-            postedTime:date,
-            image:PhotoUrl
-            
-            
+const AddProduct = () => {
 
-            
-            
-           
-        }
-        console.log(ProductDetails)
-        
+    const { register, formState: { errors }, handleSubmit } = useForm()
+    const [data, setData] = useState()
+    const [singlephoto, setPhoto] = useState({})
 
-        fetch("https://n-mohammadibrahim2.vercel.app/category",{
-            method:"POST",
-            headers:{
-                "content-type":"application/json"
-            },
-            body:JSON.stringify(ProductDetails)
+    const { user } = useContext(AuthContext)
+
+    const handletask = (data) => {
+        console.log(data)
+
+        const image = data.photo[0]
+        console.log(data.photo[0])
+
+        const formData = new FormData()
+        formData.append("image", image)
+        const url = "https://api.imgbb.com/1/upload?expiration=600&key=acbca0356cf868436c7c6a4a4783d467"
+        fetch(url, {
+            method: "POST",
+            body: formData
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            if(data.acknowledged===true){
-                toast.success("successfully Add a product by seller")
-            }
-            form.reset()
-        })
-        
-        
+            .then(res => res.json())
+
+
+            .then(img => {
+                if (img.success) {
+                    console.log(img.data.url)
+
+                    const postedPhoto = img.data.url
+                    data["image"] = postedPhoto;
+
+                    const newUpdatedata = data
+                    console.log(newUpdatedata, "data update hoice")
+                    setPhoto(newUpdatedata)
+
+                    fetch("https://task-management-server-mohammadibrahim2.vercel.app/task", {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    })
+                        .then(res => res.json())
+                        .then(addedData => {
+                            console.log(addedData)
+                            if (addedData.acknowledged === true) {
+                                toast.success("successfully added your data into database")
+                            }
+                        })
+
+
+                }
+
+            })
+
+
+
+
     }
+    return (
+        <div className={`  h-auto  py-3 `} >
+            <Navigation title={"Add Product"} main={"DashBoard"}/>
 
-return(
-    <div>
-        <div className="hero  w-full ">
-                <div className="hero-content flex lg:flex-row-reverse  w-full">
-                    
-                    <div className=" flex-shrink-0 w-full max-w-sm shadow-2xl bg-red-100">
-                        <form onSubmit={handleOnsubmit} className="p-10  w-full ">
-                            <h1 className="text-3xl text-black font-semibold my-3">Add your product</h1>
-                        <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text text-black">Your Name</span>
-                                </label>
-                                <input type="text" name="UserName" defaultValue={user.displayName} placeholder="Name" className="input input-bordered" />
-                            </div>
-                        <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text text-black">Product Name</span>
-                                </label>
-                                <input type="text" name="productName" placeholder="Name" className="input input-bordered" />
-                            </div>
-                           <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text text-black">Location</span>
-                                </label>
-                                <input type="text" name="Location" placeholder="Location" className="input input-bordered" />
-                            </div>
-                            <div>
-                            <label className="label">
-                                    <span className="label-text text-black">Catagory</span>
-                                </label>
-                                <select name="category"className="select select-bordered w-full max-w-xs">
-                               
-                               <option >BedRoom</option>
-                               <option>Reading Room</option>
-                               <option >Drawing room</option>
-                           </select>
-                            </div>
-                            <div>
-                            <label className="label">
-                                    <span className="label-text text-black">Original Price</span>
-                                </label>
-                                <input type="text" name="OriginalPrice"  className="input input-bordered" />
-                                
-                            </div>
-                           
-                            <div>
-                            <label className="label">
-                                    <span className="label-text text-black">Resale Price</span>
-                                </label>
-                                <input type="text" name="ResalePrice"  className="input input-bordered" />
-                                
-                            </div>
-                            <div>
-                            <label className="label">
-                                    <span className="label-text text-black">Used Year</span>
-                                </label>
-                                <input type="text" name="Usedyear"  className="input input-bordered" />
-                                
-                            </div>
-                            <input type="date" name="Date"  className="input input-bordered mt-2 w-full" />
-                            
-                            
-                            
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text text-black">Product Photo</span>
-                                </label>
-                                <input type="file"name="PhotoURL" className="file-input file-input-bordered w-full max-w-xs" />
-                            </div>
-                            
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text text-black"> Your Email</span>
-                                </label>
-                                <input type="email" defaultValue={user.email} name="UserEmail" className="input input-bordered" />
-                            </div>
-                           
-                           
-                          
-                            <div className="form-control mt-6">
-                                <button className="btn bg-red-500 text-black">Add Product</button>
-                              
-                            </div>
-                            
-                        </form>
-                    </div>
-                </div>
-            </div>
-    </div>
-)
+            <form className="lg:w-1/2 md:w-1/2 w-full  py-10 px-8 mx-auto  my-3  border-2 " onSubmit={handleSubmit(handletask)} >
+                <h1 className="text-xl text-start font-semibold text-black font-sans py-4 flex flex-row items-center " ><MdAddBusiness className="text-2xl" style={{ color: "#ed1d24" }} /><span className="ml-2">Add New Product</span></h1>
+                <input type="text" {...register("subject", { required: "subject is requred" })} placeholder="Product Name" className="px-3 py-2 w-full border-2 text-black bg-white border-black " />
+                <input type="text" {...register("subject", { required: "subject is requred" })} placeholder="subject" className="px-3 py-2 w-full border-2  text-black bg-white border-black my-2" />
+                <input type="text" {...register("subject", { required: "subject is requred" })} placeholder="subject" className="px-3 py-2 w-full border-2  text-black bg-white border-black my-2" />
+
+                <select {...register("category", { required: true })} className="w-full bg-white text-black py-2 pl-2 border-2 border-black">
+                    <option value="" className="text-red-600">Mobile</option>
+                    <option value="A" className="text-red-600">Tablet</option>
+                    <option value="B" className="text-red-600">Speaker</option>
+                    <option value="B" className="text-red-600">Smart Watch</option>
+                    <option value="B" className="text-red-600">Head Phone</option>
+                    <option value="B" className="text-red-600">Digital camera</option>
+                    <option value="B" className="text-red-600">Other</option>
+                </select>
+                <input type="file" {...register("photo", { required: "file is requred" })} className=" my-2   text-white px-3 py-2 w-full border-2  " style={{ backgroundColor: "#ed1d24" }} />
+                <input type="text" {...register("task", { required: "" })} placeholder="Price" className="px-3 py-2 w-full border-2 border-black bg-white my-2 text-black" />
+
+                <input type="submit" className="px-4 py-2  text-white font-semibold w-full " style={{ backgroundColor: "#ed1d24" }} />
+
+                <p>{data}</p>
+                {errors.subject && <p className="text-red-600" role="alert">{errors.subject?.message}</p>}
+
+            </form>
+
+
+
+
+
+        </div>
+    )
 
 }
 export default AddProduct

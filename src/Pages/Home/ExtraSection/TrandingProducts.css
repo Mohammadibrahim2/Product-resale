@@ -1,0 +1,104 @@
+
+
+.imgbox{
+    position: relative;
+    transition-duration: 1s;
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+   
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    transition-duration: 1s;
+}
+.threestu{
+    position: absolute;
+   
+    height: 100%;
+    opacity: 1;
+  
+    top:0;
+    left: 100%;
+    /* transform: translateX(-50%); */
+    transition-duration: .5s;
+   
+    color: black;
+   
+
+    
+
+}
+.cart{
+    transition-duration: .2s;
+    background-color: #ffff;
+    color: black;
+    
+}
+.wish{
+    transition-duration: .6s;
+    background-color: #ffff;
+    color: black;
+}
+.eye{
+    background-color: #ffff;
+    color: black;
+    transition-duration: .1s;
+}
+
+.fullbox:hover>.imgbox>.overlay{
+    background-image:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.2)) ;
+    
+
+}
+.fullbox:hover>.imgbox>.overlay>.threestu{
+    position: absolute;
+    z-index: 10;
+height: 100%;   
+    opacity: 1;
+  
+    top:0%;
+    left: 80%;
+    /* transform: translateX(-50%); */
+    
+
+}
+.fullbox>.imgbox>.overlay>.threestu>.cart:hover{
+    background-color:#ED1D24 ;
+    color:white
+}
+.fullbox>.imgbox>.overlay>.threestu>.wish:hover{
+    background-color:#ED1D24 ;
+    color:white
+}
+.fullbox>.imgbox>.overlay>.threestu>.eye:hover{
+    background-color:#ED1D24 ;
+    color:white
+}
+.percentage-child{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    left:0;
+    width: 30px;
+   
+    color: white;
+    padding: 4px;
+    transition-duration: 1s;
+ 
+}
+.fullbox:hover>.imgbox>.overlay>.percentage>.percentage-child{
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    right: 0;
+    
+    color: white;
+    padding: 4px;
+    transform: translateX(0%);
+
+}

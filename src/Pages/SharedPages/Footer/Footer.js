@@ -1,36 +1,75 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import NewsLetter from "../../Home/ExtraSection/News/Newsletter";
 
 const Footer = () => {
 
     return (
-        <div>
+        <div className="w-full lg:h-[70vh] text-white flex flex-col justify-end bg-zinc-900 relative mt-12 lg:mt-10" style={{ fontSize: "14px" }}>
+            <NewsLetter></NewsLetter>
 
-            <footer className="footer p-10 bg-base-300 text-white">
-                <div>
-                    <span className="footer-title">Services</span>
-                    <Link to="/">Product Catagories</Link>
-                    <Link to="/login">Log in</Link>
-                    <Link to="/register">Registration</Link>
-                    <Link to="/adverties">Advertisement</Link>
-                   
+            <div className="flex lg:flex-row lg:justify-around  lg:items-end flex-col justify-around items-start lg:pb-5 px-4 w-[99%] mx-full mt-32 ">
+                <div className="firts-f-section text-start leading-10 text-gray-300">
+
+                    <h2 className="text-2xl font-bold font-sans text-white">CONTACT INFOMATION</h2>
+                    <p>Call Us 24/7 Free</p>
+                    <h2 className="text-3xl text-extrabold " style={{ color: "#e50000" }}>+88 01632846454</h2>
+                    <h2>Adress: Powro bazar,Maijdee Noakhali</h2>
+                    <h2>Email: noakhaliit432@gmail.com</h2>
+
+
                 </div>
-                <div>
-                    <span className="footer-title">Catagories</span>
-                    <Link to="/">Home</Link>
-                    <Link to="/blog">Blog</Link>
-                    
-                    
-                </div>
-                <div>
-                    <span className="footer-title">Social</span>
-                    <div className="grid grid-flow-col gap-4">
-                        <Link to="/" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></Link>
-                        <Link to="/" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></Link>
-                        <Link to="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></Link>
+                {/* end first-sectiojn:- */}
+                <div className="second-f-section text-gray-300">
+                    <h1 className="text-xl font-semibold text-white">Information</h1>
+                    <div className="list-none text-start leading-8">
+                        <li>Delevary</li>
+                        <li>About US</li>
+                        <li>Contact US</li>
+                        <li>Stores</li>
+                        <li>Secure Payment</li>
                     </div>
+
                 </div>
-            </footer>
+                {/* end second-sectiojn:- */}
+                <div className="third-f-section text-gray-300">
+                    <h1 className="text-xl font-semibold text-white">Custom Links</h1>
+                    <div className="text-start list-none leading-8">
+                       
+
+                        <Link to="/wishlist"><li className="hover:text-red-600">Wishlist</li> </Link>
+                        <Link to="/cart"><li   className="hover:text-red-600">My Cart</li> </Link>
+
+
+                        <Link to="/shop"><li  className="hover:text-red-600">Shop</li></Link>
+                        <Link to="/blog"><li  className="hover:text-red-600">Blog</li></Link>
+                        <Link to="/contact"><li  className="hover:text-red-600">Contact Us</li></Link>
+                    </div>
+
+
+                </div>
+
+
+                <div className="third-f-section lg:mt-0 mt-2">
+                    <h1 className="text-xl font-semibold lg:text-center text-start ">Our Location</h1>
+                    <img src="https://i.ibb.co/c8tV7Kt/location.webp" className="h-[170px] w-auto py-2"></img>
+
+
+                </div>
+
+
+
+            </div>
+
+            <div className="flex lg:flex-row flex-col justify-between w-full lg:items-end items-start py-5 px-5 bg-zinc-800">
+                <h2 className="lg:mb-0 mb-2  ">copyrigth by <span style={{ color: "#e50000" }}>Nokahali It center</span>,2023</h2>
+                <div className="flex flex-row w-1/3">
+                    <img src="https://i.ibb.co/cgbf0rT/paypay.jpg" className="w-[80px] h-[30px]"></img>
+                    <img src="https://i.ibb.co/0VdCz7s/visa.png" className="w-[80px]  h-[30px] mx-3"></img>
+                    <img src="https://i.ibb.co/s5rZGk6/maseter.png" className="w-[80px]  h-[30px]"></img>
+                    <img src="https://i.ibb.co/Prf22ZS/paypal.jpg" className="w-[80px]  h-[30px] mx-3"></img>
+                </div>
+            </div>
         </div>
     )
 

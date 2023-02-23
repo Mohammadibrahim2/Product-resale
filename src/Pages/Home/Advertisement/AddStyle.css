@@ -1,0 +1,19 @@
+/* .advatiseitms{
+    padding: 0px;
+    transition-duration: .4s;
+   
+}
+.advatiseitms:hover{
+   
+} */
+
+.imgbox{
+    overflow: hidden;
+}
+.img{
+    transform: scale(1);
+    transition-duration: .9s;
+}
+.imgbox:hover>.img{
+    transform: scale(1.15);
+}

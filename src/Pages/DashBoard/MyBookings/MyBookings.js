@@ -1,90 +1,100 @@
-
 import { useQuery } from "@tanstack/react-query";
-import React , { useContext, useState } from "react";
-
-import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
-import PaymentModal from "../PaymentModal/PaymentModal";
-const MyBookings=()=>{
-  const[paymentData,setPaymentData]=useState(null)
-   
-const{user}=useContext(AuthContext)
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+const AllProducts=()=>{
 
 
 
-const url=`https://n-mohammadibrahim2.vercel.app/bookings?email=${user.email}`
+const {data, refetch} = useQuery({
+  queryKey: ['users'],
+  queryFn: async() =>{
+      const res = await fetch('http://localhost:5000/allproducts');
+      const data = await res.json();
+      return data;
+  }
+});
+console.log(data)
 
-const {data:bookings = [] }=useQuery ({
-    queryKey:["bookings",user?.email],
-    queryFn:async()=>{
-        const res = await fetch(url,{
-            headers:{
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-        const data=await res.json();
-        return data
-    }
-})
 
     
-  
+
+    const handleMakeAdmin = id => {
+      fetch(`http://localhost:5000/users/admin/${id}`, {
+          method: 'PUT', 
+          headers: {
+              authorization: `bearer ${localStorage.getItem('accessToken')}`
+          }
+      })
+      .then(res => res.json())
+      .then(data => {
+          if(data.modifiedCount > 0){
+              toast.success('Make admin successful.')
+              refetch();
+          }
+      })
+  }
+  const handleDelete=id=>{
+    fetch(`https://n-mohammadibrahim2.vercel.app//allusers/${id}`,{
+      method:"DELETE"
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      toast.success("successfully deleted")
+      refetch()
+    })
+  }
     return(
         <div>
-            <div> <h2 className="text-3xl  text-black font-semibold my-5">My bookings</h2></div>
+          
             <div className="overflow-x-auto text-xl ">
+            <h2 className="text-xl text-start my-3 pl-4   text-black  font-semibold">All Products</h2>
+          
   <table className="table text-black w-full  ">
+
     <thead className="bg-red-10 ">
-      <tr className="">
-        <th className=" text-xl bg-red-200">Image</th> 
-        <th className=" text-xl bg-red-200">Tittle</th> 
-        <th className=" text-xl bg-red-200">price</th> 
-        <th className=" text-xl bg-red-200">Payment</th>
+      <tr className="border">
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Img</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Product Name</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Category</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Old Price</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>New Price</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Action</th> 
        
       </tr>
     </thead> 
-   
-    <tbody className="mt-5 text-left text-white">
+    <tbody className="mt-5 text-left " style={{color:"#ed1d24"}}>
     
 
 
-{
-    bookings.map((booking,i)=><tr 
-    key={i}
-    className="py-5">
-      
-    <th>
+{data&&
+   data.result.map((users,i)=><tr className="py-2">
+    
+    <td className="bg-white" >
+  <div className="flex items-center space-x-3">
     <div className="avatar">
-  <div className="w-16 rounded">
-    <img src={booking.image} alt="Tailwind-CSS-Avatar-component" />
+      <div className="mask mask-squircle w-12 h-12">
+        <img src={users.img} alt="Avatar Tailwind CSS Component" />
+      </div>
+    </div>
+    
   </div>
-</div></th> 
-    
-    
+</td >
+    <th className="bg-white text-sm">{users.title}</th> 
    
-    <th>{booking.productName}</th>
-    <th>{booking.price}</th> 
-    
-    {/* onClick={ ()=>handlePayment(booking._id)} */}
-    {/* <label htmlFor="Payment-Modal" className="btn btn-primary">Pay</label> */}
-    <th><label htmlFor="Payment-Modal" className="btn btn-primary" onClick={()=>setPaymentData(booking)}>Pay</label></th> 
-   
+    <th className="bg-white text-sm ">{users.category}</th> 
+    <th className="bg-white text-sm">{users.price}</th> 
+    <th className="bg-white text-sm"><button onClick={ ()=>handleMakeAdmin(users._id)} className="py-2 px-3 bg-zinc-900 text-white">UpDate</button></th> 
+    <th className="bg-white text-sm"><button onClick={ ()=>handleDelete(users._id)}className="py-2 px-3 bg-red-600 text-white">Delete</button></th>
   </tr>)
+
+
 }
 
 </tbody> 
-{paymentData&&
-  <PaymentModal
-  paymentData={paymentData}
-
-
-></PaymentModal>
-}
-
-
     
     </table>
   </div>
         </div>
     )
 }
-export default MyBookings
+export default AllProducts

@@ -1,0 +1,49 @@
+
+.headCat{
+    position: relative;
+    
+}
+.headCat:after{
+    content: "";
+    position: absolute;
+    top:100%;
+    left: 0;
+    width: 30%;
+    height:4px;
+    background-color: red;
+    display: block;
+    transition-duration: 1s;
+}
+.headshot{
+    position: relative;
+    
+}
+.headshot:after{
+    content: "";
+    position: absolute;
+    top:100%;
+    left: 0;
+    width: 30%;
+    height:4px;
+    background-color: red;
+    display: block;
+    transition-duration: 1s;
+}
+.headCat:hover::after{
+    width: 63%;
+}
+.shopBannar{
+    background: url("https://i.ibb.co/X3w0kcw/shop-bannar.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.cat{
+    color:#000000;
+    transition-duration: .2s;
+}
+.cat:hover{
+    color: #ed1d24;
+}

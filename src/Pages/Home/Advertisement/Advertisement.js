@@ -1,34 +1,50 @@
 import React from "react";
 import ImageGallery from 'react-image-gallery';
+import "./AddStyle.css";
 
 const Advertisement=()=>{
     
+  const items=[
+    {
+      id:1,
+      img:"https://i.ibb.co/D82ZS1m/adver.webp",
+   
+    },
+ 
+    {
+      id:4,
+      img:"https://i.ibb.co/pXS1wpg/addver2.webp",
+    
+    },
+    {
+      id:1,
+      img:"https://i.ibb.co/Zfx9hPn/add80.webp",
+ 
+    }
+    
+  ]
+
+ 
     return(
         <div className="w-full">
-            <h1 className="text-3xl text-black mb-3">Advertisement</h1>
-            <div className="carousel carousel-center w-full p-4 space-x-4 bg-neutral rounded-box">
-  <div className="carousel-item">
-    <img src="https://5.imimg.com/data5/LI/WC/MY-48861015/second-hand-dining-table-500x500.jpg" className="rounded-box w-64" />
-  </div> 
-  <div className="carousel-item">
-    <img src="https://admin.regalfurniturebd.com/storage/uploads/fullsize/2022-04/cbh-359.jpg" className="rounded-box w-64" />
-  </div> 
-  <div className="carousel-item">
-    <img src="https://media.karousell.com/media/photos/products/2020/10/11/second_hand_single_bed_frame_a_1602388984_76ec6a70.jpg" className="rounded-box w-64" />
-  </div> 
-  <div className="carousel-item">
-    <img src="https://usedfurnitures.in/timthumb.php?src=images/products/2190-soild-wood-study-table.JPG&h=350" className="rounded-box w-64" />
-    
-  </div> 
-  <div className="carousel-item">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRigCoRy17hZRxxfpmnYD189g35NvZiY-P343N84JbLL2hB__U3h2MvcWd2F3Jh5P99T2w&usqp=CAU" className="rounded-box w-40" />
-  </div> 
-   
-  <div className="carousel-item">
-    <img src="https://5.imimg.com/data5/LI/WC/MY-48861015/second-hand-dining-table-500x500.jpg" className="rounded-box w-40" />
-  </div>
-</div>
+       
 
+         
+<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-[95%] mx-auto gap-3 ">
+
+
+           
+            {
+              items.map(item=> <div className=" bg-white text-black h-[200px] advatiseitms">
+              <div className=" text-black h-full semibox ">
+                <div className="w-full h-full imgbox">
+                  <img src={item.img} alt="img" className="w-full h-full  img "></img></div>
+              
+                </div>
+              </div>)
+            }
+            </div>
+      
         </div>
     )
 }

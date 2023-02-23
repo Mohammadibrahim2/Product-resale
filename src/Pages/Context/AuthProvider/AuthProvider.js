@@ -12,6 +12,8 @@ const auth = getAuth(app);
 export const AuthContext=createContext()
 
 const AuthProvider=({children})=>{
+    const[itemsCount,setcountItems]=useState(0)
+    console.log(itemsCount)
     const [user,setUser]=useState({})
     const[loading,setLoading]=useState(true)
    
@@ -48,7 +50,7 @@ const AuthProvider=({children})=>{
             unsubscribe()
         }
         },[]);
-    const authInfo={user,signin,login,logout,GooglessigninProvider,updateUser,loading}
+    const authInfo={user,signin,login,logout,GooglessigninProvider,updateUser,loading,setcountItems,itemsCount}
 
     return(
         <div>

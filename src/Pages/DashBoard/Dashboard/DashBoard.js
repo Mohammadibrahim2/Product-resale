@@ -46,27 +46,29 @@ const {data: allusers = [], refetch} = useQuery({
         <div>
           
             <div className="overflow-x-auto text-xl ">
-            <h2 className="text-3xl   text-black py-5 font-semibold">All Users</h2>
+            <h2 className="text-xl   text-black  font-semibold">All Users</h2>
+          
   <table className="table text-black w-full  ">
+
     <thead className="bg-red-10 ">
       <tr className="border">
-        <th className=" text-xl bg-red-200">Img</th> 
-        <th className=" text-xl bg-red-200">Name</th> 
-        <th className=" text-xl bg-red-200">Email</th> 
-        <th className=" text-xl bg-red-200">Role</th> 
-        <th className=" text-xl bg-red-200">Id</th> 
-        <th className=" text-xl bg-red-200">Last Login</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Img</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Name</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Email</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Role</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Id</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Last Login</th> 
        
       </tr>
     </thead> 
-    <tbody className="mt-5 text-left text-white">
+    <tbody className="mt-5 text-left " style={{color:"#ed1d24"}}>
     
 
 
 {
-   allusers.map((users,i)=><tr className="py-5">
+   allusers.map((users,i)=><tr className="py-2">
     
-    <td>
+    <td className="bg-white" >
   <div className="flex items-center space-x-3">
     <div className="avatar">
       <div className="mask mask-squircle w-12 h-12">
@@ -75,13 +77,13 @@ const {data: allusers = [], refetch} = useQuery({
     </div>
     
   </div>
-</td>
-    <th>{users.name}</th> 
+</td >
+    <th className="bg-white text-sm">{users.name}</th> 
    
-    <th>{users.email}</th> 
-    <th>{users.role}</th> 
-    <th><button onClick={ ()=>handleMakeAdmin(users._id)} className="btn btn-success">Admin</button></th> 
-    <th><button onClick={ ()=>handleDelete(users._id)}className="btn btn-error">Delete</button></th>
+    <th className="bg-white text-sm ">{users.email}</th> 
+    <th className="bg-white text-sm">{users.role}</th> 
+    <th className="bg-white text-sm"><button onClick={ ()=>handleMakeAdmin(users._id)} className="py-2 px-3 bg-green-600 text-black">Admin</button></th> 
+    <th className="bg-white text-sm"><button onClick={ ()=>handleDelete(users._id)}className="py-2 px-3 bg-red-600 text-white">Delete</button></th>
   </tr>)
 
 

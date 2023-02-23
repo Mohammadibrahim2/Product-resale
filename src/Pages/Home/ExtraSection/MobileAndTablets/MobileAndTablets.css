@@ -1,0 +1,28 @@
+
+.cart{
+    background-color: #fff;
+    color:black;
+    transition-duration: .5s ease-in-out;
+}
+.wish{
+    background-color: #fff;
+    color:black;
+    transition-duration: .5s ease-in-out;
+}
+.eye{
+    background-color: #fff;
+    color:black;
+    transition-duration: .5s ease-in-out;
+}
+.cart:hover{
+    background-color: #ED1D24;
+    color:white
+}
+.wish:hover{
+    background-color: #ED1D24;
+    color:white
+}
+.eye:hover{
+    background-color: #ED1D24;
+    color:white
+}

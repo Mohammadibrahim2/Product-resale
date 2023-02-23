@@ -2,15 +2,26 @@ import { createBrowserRouter } from "react-router-dom";
 import DashBoardLAyout from "../../../DashboardLayout/DashBoardLayout";
 import Main from "../../../Layout/Main";
 import Blog from "../../Blog/Blog";
+import Blog1 from "../../Blog/BlogLg";
+import Contact from "../../ContactUs/ContactUs";
 import AddProduct from "../../DashBoard/Dashboard/AddProduct/AddProduct";
+import AllOrders from "../../DashBoard/Dashboard/AllBookings/AllBookings";
 import Allseller from "../../DashBoard/Dashboard/Allseller/Allseller";
 import DashBoard from "../../DashBoard/Dashboard/DashBoard";
+import DashBoardMain from "../../DashBoard/Dashboard/DashBoardMain";
+import AllProducts from "../../DashBoard/MyBookings/MyBookings";
 import MyBookings from "../../DashBoard/MyBookings/MyBookings";
 import Payment from "../../DashBoard/Payment/Payment";
+import Cart from "../../Home/Category/Cart/Cart";
+
+
 import ProductsOFCategory from "../../Home/Category/CatagoryBasedProducts/Products/Products";
+import Wishlist from "../../Home/Category/Wishlist/Wishlist";
 import Home from "../../Home/Home";
-import Login from "../../Login/Login/Login";
-import Register from "../../Login/Register/Register";
+
+import Registration from "../../Login/Registration/REgistration";
+import SearchItems from "../../Shop/SearchItems";
+import Shop from "../../Shop/Shop";
 import ErrorPage from "../Errorroutes/ErrorPage";
 import PrivateRoute from "./Privateroute/PrivateRoute";
 
@@ -25,17 +36,36 @@ export const router=createBrowserRouter([
             element:<Home></Home>
         },
         {
+            path:"/shop",
+            element:<Shop></Shop>
+        },
+        // {
+        //     path:"/shop/:name",
+        //     element:<SearchItems></SearchItems>,
+        //     loader:(params)=>fetch(`http://localhost:5000/allproducts/${params.name}`)
+        // },
+        {
             path:"/blog",
-            element:<Blog></Blog>
+            element:<Blog1></Blog1>
+        },
+        {
+            path:"/cart",
+            element:<Cart></Cart>
+        },
+        {
+            path:"/wishlist",
+            element:<Wishlist></Wishlist>
         },
         {
             path:"/login",
-            element:<Login></Login>
+            element:<Registration></Registration>
         },
         {
-            path:"/register",
-            element:<Register></Register>
+            path:"/contact",
+            element:<Contact></Contact>
         },
+        
+       
         {
             path:"/category/:title",
             element:<PrivateRoute><ProductsOFCategory></ProductsOFCategory></PrivateRoute>,
@@ -53,8 +83,12 @@ export const router=createBrowserRouter([
     children:[
 
         {
+            path:"/dashboard/mybookings",
+            element:<AllProducts></AllProducts>
+        },
+        {
             path:"/dashboard",
-            element:<MyBookings></MyBookings>
+            element:<DashBoardMain></DashBoardMain>
         },
         {
             path:"/dashboard/allusers",
@@ -73,6 +107,10 @@ export const router=createBrowserRouter([
         {
             path:"/dashboard/allproduct",
             element:<AddProduct></AddProduct>
+        },
+        {
+            path:"/dashboard/allorders",
+            element:<AllOrders></AllOrders>
         }
         
     ]
