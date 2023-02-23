@@ -19,7 +19,7 @@ const TrandingProducts = () => {
   const [items, setItems] = useState([])
   const { refetch, loading } = useQuery({
     queryKey: ['type'],
-    queryFn: () => fetch(`http://localhost:5000/category/mediam`)
+    queryFn: () => fetch(`https://n-mohammadibrahim2.vercel.app/category/mediam`)
       .then(res => res.json())
       .then(data => {
         setItems(data)
@@ -138,7 +138,7 @@ const TrandingProducts = () => {
     wisheditem.user = user?.displayName;
     wisheditem.email = user?.email;
     console.log(wisheditem)
-    fetch(`http://localhost:5000/addtowish/${user.email}`, {
+    fetch(`https://n-mohammadibrahim2.vercel.app/addtowish/${user.email}`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -194,7 +194,7 @@ const TrandingProducts = () => {
     cartitems.person = user?.displayName;
     cartitems.email = user?.email;
     console.log(cartitems)
-    fetch(`http://localhost:5000/addtocart/${user?.email}`, {
+    fetch(`https://n-mohammadibrahim2.vercel.app/addtocart/${user?.email}`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -263,7 +263,7 @@ const TrandingProducts = () => {
         }
 
       </div>
-      <Navigation></Navigation>
+ 
 
 
     </div>

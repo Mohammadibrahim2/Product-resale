@@ -46,7 +46,7 @@ const fullTotal=sumWithInitial+vat
 
  const {refetch,loading}=useQuery({
         queryKey:['email'],
-        queryFn:()=>fetch(`http://localhost:5000/addtocart?email=${user?.email}`)
+        queryFn:()=>fetch(`https://n-mohammadibrahim2.vercel.app/addtocart?email=${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
           setItems(data.result)
@@ -62,7 +62,7 @@ const fullTotal=sumWithInitial+vat
       const handleDelete=(id)=>{
 
         console.log(id)
-       fetch(`http://localhost:5000/addtocart/${id}`,{
+       fetch(`https://n-mohammadibrahim2.vercel.app/addtocart/${id}`,{
        method:"DELETE"})
        .then(res=>res.json())
        .then(data=>{

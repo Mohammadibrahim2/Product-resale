@@ -29,7 +29,7 @@ const MobileAndTablets = () => {
   const [items, setItems] = useState([])
   const { isLoading, refetch } = useQuery({
     queryKey: ['allorders'],
-    queryFn: () => fetch(`http://localhost:5000/category/horizontal`)
+    queryFn: () => fetch(`https://n-mohammadibrahim2.vercel.app/category/horizontal`)
       .then(res => res.json())
       .then(data => {
         setItems(data)
@@ -43,7 +43,7 @@ const MobileAndTablets = () => {
   const [mobileitems, setMobileitems] = useState([])
   const { refatch } = useQuery({
     queryKey: [''],
-    queryFn: () => fetch(`http://localhost:5000/category/vertical`)
+    queryFn: () => fetch(`https://n-mohammadibrahim2.vercel.app/category/vertical`)
       .then(res => res.json())
       .then(data => {
         setMobileitems(data)
@@ -268,7 +268,7 @@ const MobileAndTablets = () => {
     cartitems.person = user?.displayName;
     cartitems.email = user?.email;
     console.log(cartitems)
-    fetch(`http://localhost:5000/addtocart/${user?.email}`, {
+    fetch(`https://n-mohammadibrahim2.vercel.app/addtocart/${user?.email}`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -299,7 +299,7 @@ const MobileAndTablets = () => {
     wisheditem.user = user?.displayName;
     wisheditem.email = user?.email;
     console.log(wisheditem)
-    fetch(`http://localhost:5000/addtowish/${user.email}`, {
+    fetch(`https://n-mohammadibrahim2.vercel.app/addtowish/${user.email}`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"

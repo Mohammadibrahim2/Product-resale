@@ -89,7 +89,7 @@ const Contact = () => {
     event.target.reset()
 
  
-    fetch(`http://localhost:5000/addmessage/${email}`, {
+    fetch(`https://n-mohammadibrahim2.vercel.app/addmessage/${email}`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"

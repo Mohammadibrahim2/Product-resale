@@ -8,7 +8,7 @@ const UserMessage=()=>{
 const {data: allusers = [], refetch} = useQuery({
   queryKey: ['users'],
   queryFn: async() =>{
-      const res = await fetch('http://localhost:5000/addmessage');
+      const res = await fetch('https://n-mohammadibrahim2.vercel.app/addmessage');
       const data = await res.json();
       return data;
   }
@@ -18,7 +18,7 @@ const {data: allusers = [], refetch} = useQuery({
   console.log(allusers)  
 
     const handleMakeAdmin = id => {
-      fetch(`http://localhost:5000/users/admin/${id}`, {
+      fetch(`https://n-mohammadibrahim2.vercel.app/users/admin/${id}`, {
           method: 'PUT', 
           headers: {
               authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -33,7 +33,7 @@ const {data: allusers = [], refetch} = useQuery({
       })
   }
   const handleDelete=id=>{
-    fetch(`https://n-mohammadibrahim2.vercel.app//allusers/${id}`,{
+    fetch(`https://n-mohammadibrahim2.vercel.app/allusers/${id}`,{
       method:"DELETE"
     })
     .then(res=>res.json())

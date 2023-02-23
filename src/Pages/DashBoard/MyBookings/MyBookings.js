@@ -8,7 +8,7 @@ const AllProducts=()=>{
 const {data, refetch} = useQuery({
   queryKey: ['users'],
   queryFn: async() =>{
-      const res = await fetch('http://localhost:5000/allproducts');
+      const res = await fetch('https://n-mohammadibrahim2.vercel.app/allproducts');
       const data = await res.json();
       return data;
   }
@@ -19,7 +19,7 @@ console.log(data)
     
 
     const handleMakeAdmin = id => {
-      fetch(`http://localhost:5000/users/admin/${id}`, {
+      fetch(`https://n-mohammadibrahim2.vercel.app/users/admin/${id}`, {
           method: 'PUT', 
           headers: {
               authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -34,7 +34,7 @@ console.log(data)
       })
   }
   const handleDelete=id=>{
-    fetch(`https://n-mohammadibrahim2.vercel.app//allusers/${id}`,{
+    fetch(`https://n-mohammadibrahim2.vercel.app/allusers/${id}`,{
       method:"DELETE"
     })
     .then(res=>res.json())

@@ -46,7 +46,7 @@ const AddProduct = () => {
                     console.log(newUpdatedata, "data update hoice")
                     setPhoto(newUpdatedata)
 
-                    fetch("https://task-management-server-mohammadibrahim2.vercel.app/task", {
+                    fetch("https://n-mohammadibrahim2.vercel.app/addproducts", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"

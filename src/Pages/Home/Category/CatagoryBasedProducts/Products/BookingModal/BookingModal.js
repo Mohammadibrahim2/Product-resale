@@ -51,7 +51,7 @@ const handleCart = (item) => {
     cartitems.person = user?.displayName;
     cartitems.email = user?.email;
     console.log(cartitems)
-    fetch(`http://localhost:5000/addtocart/${user?.email}`, {
+    fetch(`https://n-mohammadibrahim2.vercel.app/addtocart/${user?.email}`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"

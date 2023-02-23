@@ -35,7 +35,7 @@ const OtherElectronics = () => {
 
   const { refatch, } = useQuery({
     queryKey: ['typee'],
-    queryFn: () => fetch(`http://localhost:5000/category/otherVertical`)
+    queryFn: () => fetch(`https://n-mohammadibrahim2.vercel.app/category/otherVertical`)
       .then(res => res.json())
       .then(data => {
         setMobileitems(data)
@@ -51,7 +51,7 @@ const OtherElectronics = () => {
 
   const { data, loading } = useQuery({
     queryKey: ['typea'],
-    queryFn: () => fetch('http://localhost:5000/category/otherHorizontal')
+    queryFn: () => fetch('https://n-mohammadibrahim2.vercel.app/category/otherHorizontal')
       .then(res => res.json())
       .then(data => {
         setOtherItems(data)
@@ -78,7 +78,7 @@ const OtherElectronics = () => {
     wisheditem.user = user?.displayName;
     wisheditem.email = user?.email;
     console.log(wisheditem)
-    fetch(`http://localhost:5000/addtowish/${user.email}`, {
+    fetch(`https://n-mohammadibrahim2.vercel.app/addtowish/${user.email}`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -111,7 +111,7 @@ const OtherElectronics = () => {
     cartitems.person = user?.displayName;
     cartitems.email = user?.email;
     console.log(cartitems)
-    fetch(`http://localhost:5000/addtocart/${user?.email}`, {
+    fetch(`https://n-mohammadibrahim2.vercel.app/addtocart/${user?.email}`, {
       method: "POST",
       headers: {
         "Content-type": "application/json"
