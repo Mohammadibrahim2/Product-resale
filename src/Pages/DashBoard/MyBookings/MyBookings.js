@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import {SyncLoader} from "react-spinners";
 const AllProducts=()=>{
 
 
@@ -66,8 +67,8 @@ console.log(data)
     
 
 
-{data&&
-   data.result.map((users,i)=><tr className="py-2">
+{data?.result? 
+   data?.result.map((users,i)=><tr className="py-2">
     
     <td className="bg-white" >
   <div className="flex items-center space-x-3">
@@ -85,7 +86,14 @@ console.log(data)
     <th className="bg-white text-sm">{users.price}</th> 
     <th className="bg-white text-sm"><button onClick={ ()=>handleMakeAdmin(users._id)} className="py-2 px-3 bg-zinc-900 text-white">UpDate</button></th> 
     <th className="bg-white text-sm"><button onClick={ ()=>handleDelete(users._id)}className="py-2 px-3 bg-red-600 text-white">Delete</button></th>
-  </tr>)
+  </tr>):
+  <div className="w-full mx-auto h-[20vh] ">
+    
+<SyncLoader color="#ed1d24" className="ml-20"  />
+   
+
+  </div>
+  
 
 
 }

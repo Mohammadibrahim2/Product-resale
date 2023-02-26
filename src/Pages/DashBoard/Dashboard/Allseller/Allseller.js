@@ -42,20 +42,20 @@ const handleDelete=(id)=>{
     return(
         <div>
           
-            <div> <h2 className="text-3xl  text-black font-semibold">All Sellers</h2></div>
+            <div> <h2 className="text-2xl my-3 text-start  text-black font-semibold">All Sellers</h2></div>
             <div className="overflow-x-auto text-xl ">
   <table className="table text-black w-full  ">
-    <thead className="bg-red-10 w-full ">
+    <thead className=" w-full ">
       <tr className="w-full">
-      <th className=" text-xl bg-red-200">Image</th> 
-      <th className=" text-xl bg-red-200">Role</th> 
+      <th className=" text-xl  bg-white text-black">Image</th> 
+      <th className=" text-xl  bg-white text-black">Role</th> 
         
-        <th className=" text-xl bg-red-200">Name</th> 
+        <th className=" text-xl  bg-white text-black">Name</th> 
  
         
-        <th className=" text-xl bg-red-200">Email</th> 
-        <th className=" text-xl bg-red-200">Delete</th> 
-        <th className=" text-xl bg-red-200">verification</th> 
+        <th className=" text-xl  bg-white text-black">Email</th> 
+        <th className=" text-xl bg-white text-black">Delete</th> 
+       
          
        
       </tr>
@@ -65,10 +65,10 @@ const handleDelete=(id)=>{
 
 
 {
-    Sellers.map((seller,i)=><tr className="py-5">
+    Sellers.map((seller,i)=><tr className="py-5 bg-white">
    
    
-    <td>
+   <td className="bg-white" >
   <div className="flex items-center space-x-3">
     <div className="avatar">
       <div className="mask mask-squircle w-12 h-12">
@@ -78,13 +78,14 @@ const handleDelete=(id)=>{
     
   </div>
 </td>
-<th>{seller.name}</th>
+<th className="bg-white text-sm  text-black">{seller.role}</th> 
+<th className="bg-white text-sm   text-black" >{seller.name}</th>
 
 
-    <th>{seller.email}</th> 
-    <th>{seller.role}</th> 
-    <th><button className="btn btn-error"onClick={()=>handleDelete(seller._id)}>Delete</button></th> 
-    <th><button className="btn btn-success" onClick={()=>handleVerified(seller.email)}>verification</button></th> 
+<th className="bg-white text-sm   text-black">{seller.email}</th> 
+   
+<th className="bg-white text-sm   text-black"><button className="py-2 px-3 text-white text-sm" style={{backgroundColor:"#ed1d24"}} onClick={()=>handleDelete(seller._id)}>Delete</button></th> 
+   
    
   </tr>)
 }

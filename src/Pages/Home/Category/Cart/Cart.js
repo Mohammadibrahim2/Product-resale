@@ -50,7 +50,19 @@ const fullTotal=sumWithInitial+vat
         .then(res=>res.json())
         .then(data=>{
           setItems(data.result)
-          setcountItems(data.count)
+
+          console.log(data.result.length)
+          setcountItems(data.result.length)
+          // data.result.forEach(element=>{
+          //   
+
+          //   console.log(element)
+
+
+          // })
+
+          
+         
           console.log(data.cursor)
         })
       
@@ -69,7 +81,7 @@ const fullTotal=sumWithInitial+vat
         
         console.log(data)
         if(data.deletedCount===1){
-            toast.success("Successfull deleted your products.Than you !")
+            toast.success("Successfully deleted your products.Than you !")
             refetch()
           
            

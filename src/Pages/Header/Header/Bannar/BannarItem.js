@@ -16,7 +16,7 @@ const BannarItem = () => {
         const { className, style, onClick } = props;
         return (
             <div
-                className="border rounded-full px-2 py-3   right-3"
+                className="border rounded-full px-2 py-3   right-4"
                 style={{ position: "absolute", top: "50%", display: "block", background: "transparent", padding: "3px ", color: "#ED1D24", fontSize: "10px", border: "1px solid #ED1D24" }}
                 onClick={onClick}
             >
@@ -61,12 +61,7 @@ const BannarItem = () => {
             position: "front"
         },
      
-        // {
-        //     id: 1,
-        //     img: "https://i.ibb.co/7b3wXLF/bannarup-2.png",
-        //     position: "top",
-           
-        // },
+       
         {
             id: 1,
             img: "https://i.ibb.co/48y1VWh/bannar-4-removebg-preview.png",
@@ -91,7 +86,7 @@ const BannarItem = () => {
 
     return (
 
-        <div className=" w-full lg:h-[70vh] h-[40vh]">
+        <div className=" w-full lg:h-[70vh] h-auto   ">
 
 
 
@@ -102,24 +97,23 @@ const BannarItem = () => {
 
                 {
                     slides.map(slide =>
-                        <div className={`flex flex-row justify-between w-full px-4 py-2 ${slide.backgroundd} ${slide.textx} text-black h-full`}>
+                        <div className={`flex flex-row justify-between w-full px-4 py-2  h-full text-black ${slide.backgroundd}`}>
 
                             <div className="flex flex-row  lg:justify-around justify-between items-center  px-8 h-full">
 
-                                <div className="text-start lg:w-1/2 w-1/2 ">
+                                <div className={`text-start lg:w-1/2 w-1/2  ${slide.textx} `}>
                                     <h2 className="text-sm">Electronic Offer sale</h2>
                                 <div className="headText">
 
                               
-                                    <h1 className="font-bold  lg:text-3xl text-sm">UP TO 20% OFF <br /> OLED TV</h1>
+                                    <h1 className="font-bold  lg:text-3xl text-sm">UP TO 20% OFF <br /> ON THESE PRODUCTS</h1>
                                     <p  className="my-3 lg:text-xl text-sm">
-                                        Suscipit, aut sequi qui
-                                        iure quam voluptates asperiores illum iusto ?</p>
+                                       </p>
                                         </div>
                                     <Link to="/shop"><button className="py-1 px-2 lg:text-xl text-sm " style={{ backgroundColor: " #ed1d24", color: "white"}}> Shop Now</button></Link>
                                     </div> 
 
-                                <div className="lg:w-1/2 w-1/2 h-full justify-self-end">
+                                <div className="lg:w-1/2 w-2/3 h-full justify-self-end">
                                     <img src={slide.img} className="ml-8"></img>
                                 </div>
 

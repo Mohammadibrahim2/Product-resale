@@ -36,11 +36,11 @@ const SubHeader = () => {
     ]
     return (
 
-        <div className="bg-white text-black lg:h-[20vh] h-auto w-[95%] mx-auto rounded-lg flex lg:flex-row  flex-col justify-between px-5 my-8">
+        <div className="bg-white text-black lg:h-[20vh] h-auto w-[95%] mx-auto rounded-lg flex lg:flex-row  flex-col justify-between px-5 lg:my-8 ">
 {
     items.map(item=>
    
-        <div className="flex flex-row items-center w-full h-full justify-center lg:py-0 py-4">
+        <div className="flex flex-row items-center w-full h-full lg:justify-center justify-start lg:py-0 py-4 ">
         <span className=" text-4xl" style={{color:"#ed1d24"}}>{item.icon}</span>
         <div className="flex flex-col items-start ml-3" style={{fontSize:"13px"}}>
             <h2 className="font-semibold">{item.text}</h2>

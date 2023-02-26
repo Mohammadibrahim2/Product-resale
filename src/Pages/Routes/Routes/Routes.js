@@ -17,6 +17,7 @@ import Cart from "../../Home/Category/Cart/Cart";
 
 import ProductsOFCategory from "../../Home/Category/CatagoryBasedProducts/Products/Products";
 import Wishlist from "../../Home/Category/Wishlist/Wishlist";
+import Profile from "../../Home/ExtraSection/Profile/Profile";
 import Home from "../../Home/Home";
 
 import Registration from "../../Login/Registration/REgistration";
@@ -55,6 +56,10 @@ export const router=createBrowserRouter([
         {
             path:"/wishlist",
             element:<Wishlist></Wishlist>
+        },
+        {
+            path:"/profile",
+            element:<Profile></Profile>
         },
         {
             path:"/login",

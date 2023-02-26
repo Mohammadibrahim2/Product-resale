@@ -91,7 +91,7 @@ const OtherElectronics = () => {
         console.log(data)
         if (data.acknowledged === true) {
 
-          toast.success("Successfull added your products.Thank you!")
+          toast.success("Successfully added your products.Thank you!")
         
         }
       })
@@ -257,7 +257,7 @@ const OtherElectronics = () => {
                         <div className="w-1/2 lg:ml-16 ml-5 text-start py-16">  
                         <h1 className="text-black font-semibold">SALE UP TO 30% OFF</h1>
                         <h2 className="text-black text-3xl font-bold">Smartphone 12</h2>
-                        <button className="text-red-600 font-semibold">Shop Now</button>
+                      <Link to="/shop">  <button className="text-red-600 font-semibold">Shop Now</button></Link>
 
                         </div>
                         </div>

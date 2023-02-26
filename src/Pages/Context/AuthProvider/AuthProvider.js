@@ -16,7 +16,7 @@ const AuthProvider=({children})=>{
     console.log(itemsCount)
     const [user,setUser]=useState({})
     const[loading,setLoading]=useState(true)
-   
+    const [toggle,settoggle]=useState(true)
   
 
    const signin=(email,password)=>{
@@ -50,7 +50,7 @@ const AuthProvider=({children})=>{
             unsubscribe()
         }
         },[]);
-    const authInfo={user,signin,login,logout,GooglessigninProvider,updateUser,loading,setcountItems,itemsCount}
+    const authInfo={user,signin,login,logout,GooglessigninProvider,updateUser,loading,setcountItems,itemsCount ,toggle,settoggle}
 
     return(
         <div>

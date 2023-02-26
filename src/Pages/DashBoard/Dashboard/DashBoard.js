@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import SyncLoader from "react-spinners/SyncLoader";
 const DashBoard=()=>{
 
 
@@ -46,7 +47,7 @@ const {data: allusers = [], refetch} = useQuery({
         <div>
           
             <div className="overflow-x-auto text-xl ">
-            <h2 className="text-xl   text-black  font-semibold">All Users</h2>
+            <h2 className="text-xl text-start my-3  text-black  font-semibold">All Users</h2>
           
   <table className="table text-black w-full  ">
 
@@ -56,8 +57,8 @@ const {data: allusers = [], refetch} = useQuery({
         <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Name</th> 
         <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Email</th> 
         <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Role</th> 
-        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Id</th> 
-        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Last Login</th> 
+        <th className=" text-xl text-black" style={{backgroundColor:"#fff"}}>Action</th> 
+     
        
       </tr>
     </thead> 
@@ -65,8 +66,8 @@ const {data: allusers = [], refetch} = useQuery({
     
 
 
-{
-   allusers.map((users,i)=><tr className="py-2">
+{allusers?.cursor?
+   allusers?.cursor.map((users,i)=><tr className="py-2">
     
     <td className="bg-white" >
   <div className="flex items-center space-x-3">
@@ -78,13 +79,20 @@ const {data: allusers = [], refetch} = useQuery({
     
   </div>
 </td >
-    <th className="bg-white text-sm">{users.name}</th> 
+    <th className="bg-white text-sm">{users.name || users?.displayName}</th> 
    
     <th className="bg-white text-sm ">{users.email}</th> 
     <th className="bg-white text-sm">{users.role}</th> 
-    <th className="bg-white text-sm"><button onClick={ ()=>handleMakeAdmin(users._id)} className="py-2 px-3 bg-green-600 text-black">Admin</button></th> 
+    {/* <th className="bg-white text-sm"><button onClick={ ()=>handleMakeAdmin(users._id)} className="py-2 px-3 bg-green-600 text-black">Admin</button></th>  */}
     <th className="bg-white text-sm"><button onClick={ ()=>handleDelete(users._id)}className="py-2 px-3 bg-red-600 text-white">Delete</button></th>
   </tr>)
+  :
+  <div className="w-full mx-auto h-[20vh] ">
+    
+<SyncLoader color="#ed1d24" className="ml-20"  />
+   
+
+  </div>
 
 
 }

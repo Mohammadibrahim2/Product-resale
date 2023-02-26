@@ -151,7 +151,7 @@ const TrandingProducts = () => {
         console.log(data)
         if (data.acknowledged === true) {
 
-          toast.success("Successfull added your products.Thank you!")
+          toast.success("Successfully added your products.Thank you!")
           refetch()
         }
       })
