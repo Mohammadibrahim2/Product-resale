@@ -23,7 +23,7 @@
     "react-image-gallery": "^1.2.11",
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.4.3",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-scroll-to-top": "^3.0.0",
     "react-slick": "^0.29.0",
     "react-spinners": "^0.13.8",
