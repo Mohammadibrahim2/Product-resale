@@ -75,7 +75,7 @@ const handleSearch=(e)=>{
                 <div className="lg:hidden block transition duration-500">
              
   
-                   {toggle? <button  onClick={()=>settoggle(false)} className="text-2xl" title="Menu"><FiX/></button>:
+                   {!toggle? <button  onClick={()=>settoggle(false)} className="text-2xl" title="Menu"><FiX/></button>:
                     <button onClick={()=>settoggle(true)} className="text-2xl" title="Menu"><FiAlignRight/></button>}
                       <label htmlFor="dash" className="drawer-button  " title="DashBaord"><MdDashboard/>
         </label>
